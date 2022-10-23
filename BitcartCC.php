@@ -132,24 +132,17 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
         $this->di['db']->store($tx);
     }
 
-    /**
-     * @param string $url
-     */
     protected function _generateForm($invoiceID)
     {
-        $htmlOutput .= '<button name = "bitcart-payment" class = "btn btn-success btn-sm" onclick = "showModal();return false;">Pay now</button>';
-
-        ?>
-<script src="<?php echo $this->config['admin_url']; ?>/modal/bitcart.js" type="text/javascript"></script>
-<script type='text/javascript'>
-function showModal() {
-    bitcart.showInvoice('<?php echo $invoiceID; ?>');
-}
-</script>
-<?php
-$htmlOutput .= '</form>';
+        $htmlOutput =  '<button name = "bitcart-payment" class = "btn btn-success btn-sm" onclick = "showModal();return false;">Pay now</button>';
+        $htmlOutput .= '<script src="' . $this->config['admin_url'] . '/modal/bitcart.js" type="text/javascript"></script>';
+        $htmlOutput .= '<script type=\'text/javascript\'>';
+        $htmlOutput .= 'function showModal() {';
+        $htmlOutput .=     'bitcart.showInvoice(\''. $invoiceID .'\');';
+        $htmlOutput .= '}
+                        </script>
+                        </form>';
         return $htmlOutput;
-
     }
 
     public function isIpnDuplicate($txID, $txAmount)
