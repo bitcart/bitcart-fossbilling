@@ -138,7 +138,7 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
         $htmlOutput .= '<script src="' . $config['admin_url'] . '/modal/bitcart.js" type="text/javascript"></script>';
         $htmlOutput .= '<script type=\'text/javascript\'>';
         $htmlOutput .= 'function showModal() {';
-        $htmlOutput .=     'bitcart.showInvoice('. $invoiceID .');';
+        $htmlOutput .=     'bitcart.showInvoice(\''. $invoiceID .'\');';
         $htmlOutput .= '}
                         </script>
                         </form>';
