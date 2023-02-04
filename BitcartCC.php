@@ -64,7 +64,7 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
             'notification_url' => $this->config['notify_url'],
             'redirect_url' => $this->config['thankyou_url'],
         );
-        $invoice = $this->send_request(sprintf('%s/%s', $this->config['api_endpoint'], 'invoices/order_id/' . $order_id), $params);
+        $invoice = $this->send_request(sprintf('%s/%s', $this->config['api_endpoint'], 'invoices/order_id/' . urlencode($order_id)), $params);
         return $this->_generateForm($invoice->id);
     }
 
