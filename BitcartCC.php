@@ -50,7 +50,6 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
 
     public function getHtml($api_admin, $invoice_id, $subscription)
     {
-        // TODO: fetch by order id
         $invoice = $this->di['db']->load('Invoice', $invoice_id);
         $invoiceService = $this->di['mod_service']('Invoice');
         $payGatewayService = $this->di['mod_service']('Invoice', 'PayGateway');
