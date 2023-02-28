@@ -11,7 +11,7 @@ This version requires the following:
 
 1. From your BoxBilling/FOSSBilling panel, go to configuration > payment gateways -> New payment gateway
 
-2. Upload BitcartCC directory to the directory suggested by your deployment. [Download it](https://raw.githubusercontent.com/bitcartcc/bitcart-boxbilling/master/BitcartCC.php) from this repository
+2. Upload BitcartCC directory to the directory suggested by your deployment. [Download it](https://github.com/bitcartcc/bitcart-boxbilling/releases/latest/download/BitcartCC.zip) from this repository
 
 3. Enable it by clicking on the button near BitcartCC, fill in all settings and save.
 
