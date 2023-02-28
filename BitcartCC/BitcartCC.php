@@ -31,6 +31,11 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
         return array(
             'supports_one_time_payments' => true,
             'description' => 'Please refer to https://docs.bitcartcc.com/integrations/boxbilling for more details',
+            'logo' => array(
+                'logo' => '/BitcartCC/BitcartCC.png',
+                'height' => '50px',
+                'width' => '50px',
+            ),
             'form' => array(
                 'api_endpoint' => array('text', array(
                     'label' => 'Merchants API URL',
@@ -133,11 +138,11 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
 
     protected function _generateForm($invoiceID)
     {
-        $htmlOutput =  '<button name = "bitcart-payment" class = "btn btn-success btn-sm" onclick = "showModal();return false;">Pay now</button>';
+        $htmlOutput = '<button name = "bitcart-payment" class = "btn btn-success btn-sm" onclick = "showModal();return false;">Pay now</button>';
         $htmlOutput .= '<script src="' . $this->config['admin_url'] . '/modal/bitcart.js" type="text/javascript"></script>';
         $htmlOutput .= '<script type=\'text/javascript\'>';
         $htmlOutput .= 'function showModal() {';
-        $htmlOutput .=     'bitcart.showInvoice(\''. $invoiceID .'\');';
+        $htmlOutput .= 'bitcart.showInvoice(\'' . $invoiceID . '\');';
         $htmlOutput .= '}
                         </script>
                         </form>';
