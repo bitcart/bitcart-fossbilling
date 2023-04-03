@@ -32,7 +32,7 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
             'supports_one_time_payments' => true,
             'description' => 'Please refer to https://docs.bitcartcc.com/integrations/boxbilling for more details',
             'logo' => array(
-                'logo' => '/BitcartCC/BitcartCC.png',
+                'logo' => '/BitcartCC.png',
                 'height' => '50px',
                 'width' => '50px',
             ),
