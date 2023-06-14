@@ -5,12 +5,12 @@ class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
 
     protected $di;
 
-    public function setDi($di)
+    public function setDi(\Pimple\Container|null $di): void
     {
         $this->di = $di;
     }
 
-    public function getDi()
+    public function getDi(): ?\Pimple\Container
     {
         return $this->di;
     }
