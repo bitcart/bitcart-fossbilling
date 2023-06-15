@@ -1,16 +1,16 @@
 <?php
-class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
+class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
 {
     private $config = array();
 
     protected $di;
 
-    public function setDi($di)
+    public function setDi(\Pimple\Container|null $di): void
     {
         $this->di = $di;
     }
 
-    public function getDi()
+    public function getDi(): ?\Pimple\Container
     {
         return $this->di;
     }
@@ -21,7 +21,7 @@ class Payment_Adapter_BitcartCC implements \Box\InjectionAwareInterface
 
         foreach (['api_endpoint', 'admin_url', 'store_id'] as $key) {
             if (!isset($this->config[$key])) {
-                throw new \Box_Exception('Payment gateway BitcartCC is not configured. Please set ' . key);
+                throw new \Payment_Exception('The ":pay_gateway" payment gateway is not fully configured. Please configure the :missing', [':pay_gateway' => 'BitcartCC', ':missing' => $key]);
             }
         }
     }

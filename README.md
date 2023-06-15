@@ -1,15 +1,17 @@
-# BitcartCC plugin for BoxBilling/FOSSBilling
+# BitcartCC plugin for FOSSBilling
+For BoxBilling or FOSSBilling versions less than 0.5.0, you will need to use an [older version](https://github.com/bitcart/bitcart-boxbilling/tree/9aeb99cd3a59545113c2f5416d7ed63f00b149eb) of this payment gateway.
+Please keep in mind BoxBilling is unmaintained and both BoxBilling and outdated version FOSSBilling may suffer from security vulnerabilities. Additionally, no support will be provided for either.
 
 ## Integration Requirements
 
 This version requires the following:
 
-* BoxBilling/FOSSBilling instance
+* A working and up-to-date FOSSBilling instance
 * Running BitcartCC instance: [deployment guide](https://docs.bitcartcc.com/deployment)
 
 ## Installing the Plugin
 
-1. From your BoxBilling/FOSSBilling panel, go to configuration > payment gateways -> New payment gateway
+1. From your FOSSBilling panel, go to configuration > payment gateways -> New payment gateway
 
 2. Upload BitcartCC directory to the directory suggested by your deployment. [Download it](https://github.com/bitcartcc/bitcart-boxbilling/releases/latest/download/BitcartCC.zip) from this repository
 
