@@ -1,16 +1,17 @@
 <?php
-class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
+class Payment_Adapter_Bitcart implements \FOSSBilling\InjectionAwareInterface
+
 {
     private $config = array();
 
     protected $di;
 
-    public function setDi(\Pimple\Container|null $di): void
+    public function setDi(\Pimple\Container  | null $di): void
     {
         $this->di = $di;
     }
 
-    public function getDi(): ?\Pimple\Container
+    public function getDi():  ? \Pimple\Container
     {
         return $this->di;
     }
@@ -21,7 +22,7 @@ class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
 
         foreach (['api_endpoint', 'admin_url', 'store_id'] as $key) {
             if (!isset($this->config[$key])) {
-                throw new \Payment_Exception('The ":pay_gateway" payment gateway is not fully configured. Please configure the :missing', [':pay_gateway' => 'BitcartCC', ':missing' => $key]);
+                throw new \Payment_Exception ('The ":pay_gateway" payment gateway is not fully configured. Please configure the :missing', [':pay_gateway' => 'Bitcart', ':missing' => $key]);
             }
         }
     }
@@ -30,9 +31,9 @@ class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
     {
         return array(
             'supports_one_time_payments' => true,
-            'description' => 'Please refer to https://docs.bitcartcc.com/integrations/boxbilling for more details',
+            'description' => 'Please refer to https://docs.bitcart.ai/integrations/fossbilling for more details',
             'logo' => array(
-                'logo' => 'BitcartCC.png',
+                'logo' => 'Bitcart.png',
                 'height' => '50px',
                 'width' => '50px',
             ),
@@ -58,8 +59,8 @@ class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
         $invoice = $this->di['db']->load('Invoice', $invoice_id);
         $invoiceService = $this->di['mod_service']('Invoice');
         $payGatewayService = $this->di['mod_service']('Invoice', 'PayGateway');
-        $payGateway = $this->di['db']->findOne('PayGateway', 'gateway = "BitcartCC"');
-        $order_id = 'boxbilling-' . $invoice->id;
+        $payGateway = $this->di['db']->findOne('PayGateway', 'gateway = "Bitcart"');
+        $order_id = 'fossbilling-' . $invoice->id;
         $params = array(
             'price' => $invoiceService->getTotalWithTax($invoice),
             'store_id' => $this->config['store_id'],
@@ -117,7 +118,7 @@ class Payment_Adapter_BitcartCC implements \FOSSBilling\InjectionAwareInterface
 
         $bd = array(
             'amount' => $tx->amount,
-            'description' => 'BitcartCC transaction ' . $bitcart_invoice->id,
+            'description' => 'Bitcart transaction ' . $bitcart_invoice->id,
             'type' => 'transaction',
             'rel_id' => $tx->id,
         );
