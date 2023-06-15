@@ -12,11 +12,17 @@ This version requires the following:
 
 ## Installing the Plugin
 
-1. From your FOSSBilling panel, go to configuration > payment gateways -> New payment gateway
+### Extension directory
 
-2. Upload Bitcart directory to the directory suggested by your deployment. [Download it](https://github.com/bitcart/bitcart-fossbilling/releases/latest/download/Bitcart.zip) from this repository
+The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/Bitcart).
 
-3. Enable it by clicking on the button near Bitcart, fill in all settings and save.
+### Manual installation
+
+1. Download the latest release from the [extension directory](https://extensions.fossbilling.org/extension/Bitcart)
+2. Create a new folder named `Bitcart` in the `/library/Payment/Adapter` directory of your FOSSBilling installation
+3. Extract the archive you've downloaded in the first step into the new directory
+4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find Bitcart in the "New payment gateway" tab
+5. Click the cog icon next to Bitcart to install and configure Bitcart
 
 ## Plugin Configuration
 
